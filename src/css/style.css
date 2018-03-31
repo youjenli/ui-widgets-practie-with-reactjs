@@ -1,11 +1,26 @@
-.menuIcon {
-    width:50px;
-    height:50px;
+.menuIcon, .animatedMenuIcon{
+    width:45px;
+    margin: 50px auto;
+    cursor:pointer;
+    border:solid 1px;
+    border-radius: 5px;
 }
 
-.menuIcon .bar {
-    width:80%;
-    height:10%;
+.bar {
+    width:35px;
+    height:5px;
     background-color: black;
-    margin:3% auto;
+    margin:6px auto;
+}
+
+.bar.above {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.bar.middle {
+    opacity: 0;
+}
+
+.bar.below {
+    transform: rotate(45deg) translate(-8px, -8px);
 }

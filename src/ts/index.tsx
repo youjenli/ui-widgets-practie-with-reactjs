@@ -2,12 +2,14 @@
 /// <reference types="React" />
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import { MenuIcon } from './widgets/menuIcon'
+import { MenuIcon, AnimatedMenuIcon } from './widgets/menuIcon'
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
     ReactDOM.render(
-        <MenuIcon />,
+        <div>
+            <AnimatedMenuIcon />
+        </div>,
         reactRoot
     );
 });
