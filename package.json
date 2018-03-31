@@ -1,0 +1,25 @@
+{
+  "name": "ui-widgets-practice-with-reactjs",
+  "version": "0.1.0",
+  "description": "This is a html widget project demonstrated with typescript and reactjs.",
+  "main": "index.js",
+  "author": "youjenli",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/react": "^16.1.0",
+    "@types/react-dom": "^16.0.4",
+    "browserify": "^16.1.1",
+    "del": "^3.0.0",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.8",
+    "gulp-webserver": "^0.9.1",
+    "source": "^0.0.3",
+    "tsify": "^3.0.4",
+    "typescript": "^2.8.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.0"
+  }
+}
