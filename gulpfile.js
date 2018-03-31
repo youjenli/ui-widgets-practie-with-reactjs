@@ -4,6 +4,8 @@ const tsify = require('tsify');
 const browserify = require('browserify');
 const source = require('vinyl-source-stream'); // 將 browserify 處理好的檔案轉換回 gulp 接受的 vinyl 檔案格式
 const log = require('fancy-log');
+const sourcemaps = require('gulp-sourcemaps');
+const concat = require('gulp-concat-css');
 const webserver = require('gulp-webserver');
 
 const srcPath = './src';
@@ -53,7 +55,10 @@ const prepareJSTask = 'prepareJS';
 gulp.task(prepareJSTask, [cleanTask], bundleJS);
 
 function copyCSSFiles() {
-    const result = gulp.src(srcPath + '/css/**/*.css')
+    const result = gulp.src([srcPath + '/css/**/*.css')
+        .pipe(sourcemaps.init())
+        .pipe(concat("style.css"))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(distPath));
     log.info('Copy css files to distribution path complete.');
     return result;
