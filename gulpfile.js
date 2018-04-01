@@ -6,7 +6,6 @@ const source = require('vinyl-source-stream'); // 將 browserify 處理好的檔
 const log = require('fancy-log');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat-css');
-const cleanCSS = require('gulp-clean-css');
 const webserver = require('gulp-webserver');
 
 const srcPath = './src';
