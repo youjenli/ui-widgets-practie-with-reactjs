@@ -6,6 +6,9 @@
   "author": "youjenli",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start":"gulp watch serve"
+  },
   "devDependencies": {
     "@types/react": "^16.1.0",
     "@types/react-dom": "^16.0.4",
