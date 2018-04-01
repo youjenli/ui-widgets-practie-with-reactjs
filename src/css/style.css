@@ -86,10 +86,6 @@ body {
 .accordion .section {
     padding: 18px auto;
     background-color: white;
-    display: none;
     overflow: hidden;
-}
-
-.accordion .section.active {
-    display:block;
+    /*transition: max-height 0.2s ease-out;*/
 }

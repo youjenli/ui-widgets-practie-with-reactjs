@@ -22,10 +22,24 @@ export class Accordion extends React.Component<ContentOfAccordion, ContentOfAcco
         });
     }
     render () {
+        let classOfSectionName;
+        const styleOfSectionName:React.CSSProperties = {};
+        
+        if (this.state.isActive) {
+            classOfSectionName = 'sectionName active';
+            const section = document.querySelector('.accordion .section');
+            if (section) {
+                styleOfSectionName.maxHeight = section.scrollHeight + 'px';
+            }
+        } else {
+            classOfSectionName = 'sectionName';
+            styleOfSectionName.maxHeight = 0;
+        }
+            
         return (
             <div className="accordion" onClick={this.onClick}>
-                <button className={this.state.isActive ? 'sectionName active' : 'sectionName'}>{this.state.sectionName}</button>
-                <div className={this.state.isActive ? 'section active' : 'section'}>{this.state.section}</div>
+                <button className={classOfSectionName}>{this.state.sectionName}</button>
+                <div className='section' style={styleOfSectionName}>{this.state.section}</div>
             </div>
         )
     }
