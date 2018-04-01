@@ -4,7 +4,7 @@ import * as React from 'react';
 export class IconBar extends React.Component {
     render() {
         return (
-            <div className="icon-bar">
+            <div className="widget icon-bar">
                 <a className="active" href="#"><i className="fa fa-home"></i></a>
                 <a href="#"><i className="fa fa-search"></i></a>
                 <a href="#"><i className="fa fa-envelope"></i></a>

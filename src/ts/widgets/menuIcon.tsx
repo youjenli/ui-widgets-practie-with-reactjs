@@ -38,7 +38,7 @@ export class AnimatedMenuIcon extends React.Component<{}, AnimatedMenuIconState>
     }
     render () {
         return (
-            <div className="animatedMenuIcon" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+            <div className="animatedMenuIcon widget" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                 <div className={this.state.isActive ? 'bar above' : 'bar'}></div>
                 <div className={this.state.isActive ? 'bar middle' : 'bar'}></div>
                 <div className={this.state.isActive ? 'bar below' : 'bar'}></div>

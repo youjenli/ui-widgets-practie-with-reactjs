@@ -5,6 +5,7 @@ import * as React from 'react';
 import { MenuIcon, AnimatedMenuIcon } from './widgets/menuIcon';
 import { IconBar } from './widgets/iconBar';
 import { Accordion } from './widgets/accordion';
+import { TopNavigation } from './widgets/topNavigation';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <IconBar />
             <AnimatedMenuIcon />
             <Accordion sectionName="section 1" section="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." isActive={true} />
+            <TopNavigation />
         </div>,
         reactRoot
     );

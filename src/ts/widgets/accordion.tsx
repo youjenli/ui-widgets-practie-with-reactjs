@@ -37,7 +37,7 @@ export class Accordion extends React.Component<ContentOfAccordion, ContentOfAcco
         }
             
         return (
-            <div className="accordion" onClick={this.onClick}>
+            <div className="widget accordion" onClick={this.onClick}>
                 <button className={classOfSectionName}>{this.state.sectionName}</button>
                 <div className='section' style={styleOfSectionName}>{this.state.section}</div>
             </div>
