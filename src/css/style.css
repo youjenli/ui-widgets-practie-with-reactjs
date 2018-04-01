@@ -117,3 +117,29 @@ body {
     background-color: #4CAF50;
     color: white;
 }
+
+.topNav .icon {
+    display:none;
+}
+
+@media screen and (max-width: 600px) {
+    .topNav a:not(:first-child) { display:none; }
+    .topNav a.icon {
+        float:right;
+        display:block;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .topNav.responsive {position: relative;}
+    .topNav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topNav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
