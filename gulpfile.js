@@ -6,6 +6,7 @@ const source = require('vinyl-source-stream'); // 將 browserify 處理好的檔
 const log = require('fancy-log');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat-css');
+const cleanCSS = require('gulp-clean-css');
 const webserver = require('gulp-webserver');
 
 const srcPath = './src';
@@ -55,9 +56,9 @@ const prepareJSTask = 'prepareJS';
 gulp.task(prepareJSTask, [cleanTask], bundleJS);
 
 function copyCSSFiles() {
-    const result = gulp.src([srcPath + '/css/**/*.css')
+    const result = gulp.src([srcPath + '/css/**/*.css'])
         .pipe(sourcemaps.init())
-        .pipe(concat("style.css"))
+        .pipe(concat('style.css'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(distPath));
     log.info('Copy css files to distribution path complete.');
