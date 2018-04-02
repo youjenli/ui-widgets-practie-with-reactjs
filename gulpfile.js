@@ -63,18 +63,41 @@ gulp.task(prepareJSTask, [cleanTask], function(){
     return result;
 });
 
+const cssConcatCollections = [
+    {
+        srcFiles:[
+            srcPath + '/css/style.css'
+        ],
+        artifactName:"style.css",
+        distPath:distPath
+    },
+    {
+        srcFiles:[
+            srcPath + '/css/fixedMenu-style.css'
+        ],
+        artifactName:"fixedMenu-style.css",
+        distPath:distPath
+    },
+];
+
 function copyCSSFiles() {
-    const result = gulp.src([srcPath + '/css/**/*.css'])
-        .pipe(sourcemaps.init())
-        .pipe(concat('style.css'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(distPath));
-    log.info('Copy css files to distribution path complete.');
-    return result;
+    const tasks = cssConcatCollections.map(function(collection){
+        return gulp.src(collection.srcFiles)
+                    .pipe(sourcemaps.init())
+                    .pipe(concat(collection.artifactName))
+                    .pipe(sourcemaps.write())
+                    .pipe(gulp.dest(collection.distPath));
+    });
+    
+    return es.merge.apply(null, tasks);
 }
 
 const prepareCSSTask = 'prepareCSS';
-gulp.task(prepareCSSTask, [cleanTask], copyCSSFiles);
+gulp.task(prepareCSSTask, [cleanTask], function(){
+    const result = copyCSSFiles();
+    log.info('Copy css files to distribution path complete.');
+    return result;
+});
 
 function copyHTMLFiles() {
     const result = gulp.src(srcPath + '/html/**/*.html')
