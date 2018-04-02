@@ -2,10 +2,10 @@
 /// <reference types="React" />
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import { MenuIcon, AnimatedMenuIcon } from './widgets/menuIcon';
-import { IconBar } from './widgets/iconBar';
-import { Accordion } from './widgets/accordion';
-import { TopNavigation } from './widgets/topNavigation';
+import { MenuIcon, AnimatedMenuIcon } from './components/menuIcon';
+import { IconBar } from './components/iconBar';
+import { Accordion } from './components/accordion';
+import { TopNavigation } from './components/topNavigation';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');

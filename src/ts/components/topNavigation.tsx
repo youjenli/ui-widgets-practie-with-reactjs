@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
+import { SearchBox } from '../widgets/searchBox';
 
 interface TopNavigationState {
     foldedMenu:boolean;
@@ -34,6 +35,7 @@ export class TopNavigation extends React.Component<TopNavigationState, TopNaviga
                 <a className={classOfMenu} href="#news">News</a>
                 <a className={classOfMenu} href="#contact">Contact</a>
                 <a className={classOfMenu} href="#about">About</a>
+                <SearchBox className={classOfMenu} />
                 <a href="javascript:void(0);" className="icon" onClick={this.onClick}>&#9776;</a>
             </div>
         );

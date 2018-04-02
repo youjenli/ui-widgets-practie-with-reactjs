@@ -118,12 +118,30 @@ body {
     color: white;
 }
 
+.topNav .search-container {
+    float:right;
+}
+
+.search-container {
+    display: flex;
+    align-items:stretch;
+    padding: 10px 14px;
+}
+
+.search-container input {
+    flex: 7;
+}
+
+.search-container button {
+    flex: 3;
+}
+
 .topNav .icon {
     display:none;
 }
 
 @media screen and (max-width: 600px) {
-    .topNav a:not(:first-child) { display:none; }
+    .topNav a:not(:first-child), .topNav .search-container:not(:first-child) { display:none; }
     .topNav a.icon {
         float:right;
         display:block;
@@ -137,9 +155,14 @@ body {
       right: 0;
       top: 0;
     }
-    .topNav.responsive a {
+    .topNav.responsive a, .topNav.responsive .search-container {
       float: none;
-      display: block;
       text-align: left;
+    }
+    .topNav.responsive a {
+      display: block;
+    }
+    .topNav.responsive .search-container {
+      display:flex;
     }
 }
