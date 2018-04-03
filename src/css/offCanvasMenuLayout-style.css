@@ -1,4 +1,54 @@
 body {
     margin:0;
-    background-color:yellowgreen;
+}
+
+.offCanvasLayout {
+    width:100%;
+}
+
+.offCanvasLayout .offCanvasMenu {
+    width:0;
+    height:100%;
+    position: fixed;
+    z-index: 10;
+    top:0;
+    left:0;
+    overflow-x:hidden;
+    padding-top:60px;
+    background-color:black;
+    transition:width 0.5s ease-in;
+}
+
+.offCanvasLayout .offCanvasMenu.active {
+    width:20%;
+}
+
+.offCanvasLayout .offCanvasMenu a {
+    display: block;/* 瞄點元素不是區塊元素, 因此若不用清單元素包覆就需要以區塊顯示才會並排在一起*/
+    padding: 8px 8px 8px 32px;
+    font-size: 25px;
+    text-decoration:none;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.offCanvasLayout .offCanvasMenu a:hover{
+    color: #f1f1f1;
+}
+
+.offCanvasLayout .offCanvasMenu .closeBtn {
+    position:absolute;
+    top:0;
+    right:10%;
+    font-size:36px;
+    margin-left:70%;
+}
+
+.offCanvasLayout .content {
+    padding:20px;
+    transition: margin-left 0.5s ease-in;
+}
+
+.offCanvasLayout .content.active {
+    margin-left:20%;
 }

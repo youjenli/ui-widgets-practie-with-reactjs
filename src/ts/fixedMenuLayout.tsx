@@ -8,13 +8,13 @@ interface MenuItem {
     url: string;
 }
 
-interface FixedMenuLayoutState {
+export interface MenuLayout {
     title:string;
     content:string;
     menuItems: Array<MenuItem>;
 }
 
-class FixedMenuLayout extends React.Component<FixedMenuLayoutState, FixedMenuLayoutState> {
+class FixedMenuLayout extends React.Component<MenuLayout, MenuLayout> {
     constructor(props) {
         super(props);
         this.state = props;
