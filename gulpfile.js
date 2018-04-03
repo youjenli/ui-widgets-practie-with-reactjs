@@ -82,7 +82,7 @@ const cssConcatCollections = [
         srcFiles:[
             srcPath + '/css/offCanvasMenuLayout-style.css'
         ],
-        artifaceName:"offCanvasMenuLayout-style.css",
+        artifactName:"offCanvasMenuLayout-style.css",
         distPath:distPath
     }
 ];
