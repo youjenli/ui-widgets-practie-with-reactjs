@@ -19,8 +19,9 @@ gulp.task(cleanTask, function () {
     return del(distPath);
 });
 
-const tsEntryFiles = [srcPath + '/ts/index.tsx', srcPath + '/ts/fixedMenuLayout.tsx'];
-const jsArtifact = 'index.js'; //JavaScript 成品的名稱
+const tsEntryFiles = [srcPath + '/ts/index.tsx',
+    srcPath + '/ts/fixedMenuLayout.tsx',
+    srcPath + '/ts/offCanvasMenuLayout.tsx'];
 const tsConfig = require('./tsconfig.json');
 /*因為 tsify 接收參數的格式在 compilerOptions 的部分比 tsconfig 高一層, 
     所以下面要把 tsconfig 的 compilerOptions 往外提出來
@@ -32,8 +33,6 @@ if (tsConfig.hasOwnProperty('compilerOptions')) {
 }
 //提出 compilterOption 之後就是複製其他欄位
 Object.assign(transpileConfig, tsConfig);
-//指定要輸出 JavaScript 的檔名
-//transpileConfig.outFile = jsArtifact;
 
 function bundleJS() {
     const tasks = tsEntryFiles.map(function(entryFile){
@@ -79,6 +78,13 @@ const cssConcatCollections = [
         artifactName:"fixedMenuLayout-style.css",
         distPath:distPath
     },
+    {
+        srcFiles:[
+            srcPath + '/css/offCanvasMenuLayout-style.css'
+        ],
+        artifaceName:"offCanvasMenuLayout-style.css",
+        distPath:distPath
+    }
 ];
 
 function copyCSSFiles() {
