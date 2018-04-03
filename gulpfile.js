@@ -5,7 +5,11 @@ const browserify = require('browserify');
 const source = require('vinyl-source-stream'); // 將 browserify 處理好的檔案轉換回 gulp 接受的 vinyl 檔案格式
 const es = require('event-stream');
 const rename = require('gulp-rename');
-const log = require('fancy-log');
+const print = require('gulp-print').default;
+/*
+    gulp-print 可以接在有檔案資訊輸出的 gulp 串流後面輸出檔名
+    這點 fancy-log 似乎難以做到, 這會導致 gulp 在監控原始碼變化時沒辦法輸出重新建置的訊息到終端機
+*/
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat-css');
 const webserver = require('gulp-webserver');
@@ -51,17 +55,14 @@ function bundleJS() {
             dirname: '',
             extname: '.bundle.js'
         }))
+        .pipe(print(filePath => `Generate bundle js file : ${filePath}`))
         .pipe(gulp.dest(distPath));
     });
     return es.merge.apply(null, tasks);
 }
 
 const prepareJSTask = 'prepareJS';
-gulp.task(prepareJSTask, [cleanTask], function(){
-    const result = bundleJS();
-    log.info('Transpile and bundle javascript files complete.');
-    return result;
-});
+gulp.task(prepareJSTask, [cleanTask], bundleJS);
 
 const cssConcatCollections = [
     {
@@ -87,12 +88,13 @@ const cssConcatCollections = [
     }
 ];
 
-function copyCSSFiles() {
+function concatCSSFiles() {
     const tasks = cssConcatCollections.map(function(collection){
         return gulp.src(collection.srcFiles)
                     .pipe(sourcemaps.init())
                     .pipe(concat(collection.artifactName))
                     .pipe(sourcemaps.write())
+                    .pipe(print(filePath => `Generate concatenated css file : ${filePath}`))
                     .pipe(gulp.dest(collection.distPath));
     });
     
@@ -100,17 +102,12 @@ function copyCSSFiles() {
 }
 
 const prepareCSSTask = 'prepareCSS';
-gulp.task(prepareCSSTask, [cleanTask], function(){
-    const result = copyCSSFiles();
-    log.info('Copy css files to distribution path complete.');
-    return result;
-});
+gulp.task(prepareCSSTask, [cleanTask], concatCSSFiles);
 
 function copyHTMLFiles() {
-    const result = gulp.src(srcPath + '/html/**/*.html')
+    return gulp.src(srcPath + '/html/**/*.html')
+        .pipe(print(filePath => `Copy html file ${filePath} to distination folder.`))
         .pipe(gulp.dest(distPath));
-    log.info('Copy html files to distribution path complete.');
-    return result;
 }
 
 const prepareHtmlTask = 'prepareHTML';
@@ -123,7 +120,7 @@ gulp.task('default', [buildTask]);
 const watchTask = 'watch';
 gulp.task(watchTask, [buildTask], function () {
     gulp.watch([srcPath + '/ts/**/*.ts', srcPath + '/ts/**/*.tsx'], bundleJS);
-    gulp.watch([srcPath + '/css/**/*.css'], copyCSSFiles);
+    gulp.watch([srcPath + '/css/**/*.css'], concatCSSFiles);
     gulp.watch([srcPath + '/html/**/*.html'], copyHTMLFiles);
 });
 

@@ -15,6 +15,18 @@
             "windows": {
                 "program": "${workspaceFolder}\\node_modules\\gulp\\bin\\gulp.js"
             }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Gulp watch 除錯",
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "args":[
+                "watch"
+            ],
+            "windows": {
+                "program": "${workspaceFolder}\\node_modules\\gulp\\bin\\gulp.js"
+            }
         }
     ]
 }
