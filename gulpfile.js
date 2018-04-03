@@ -19,7 +19,7 @@ gulp.task(cleanTask, function () {
     return del(distPath);
 });
 
-const tsEntryFiles = [srcPath + '/ts/index.tsx', srcPath + '/ts/fixedMenu.tsx'];
+const tsEntryFiles = [srcPath + '/ts/index.tsx', srcPath + '/ts/fixedMenuLayout.tsx'];
 const jsArtifact = 'index.js'; //JavaScript 成品的名稱
 const tsConfig = require('./tsconfig.json');
 /*因為 tsify 接收參數的格式在 compilerOptions 的部分比 tsconfig 高一層, 
@@ -49,6 +49,7 @@ function bundleJS() {
         ).bundle() //實際開始打包, 輸出成 node.js stream
         .pipe(source(entryFile)) // 透過 vinyl-source-stream 轉換前面的建置成果為 gulp 可輸出的串流
         .pipe(rename({
+            dirname: '',
             extname: '.bundle.js'
         }))
         .pipe(gulp.dest(distPath));
@@ -73,9 +74,9 @@ const cssConcatCollections = [
     },
     {
         srcFiles:[
-            srcPath + '/css/fixedMenu-style.css'
+            srcPath + '/css/fixedMenuLayout-style.css'
         ],
-        artifactName:"fixedMenu-style.css",
+        artifactName:"fixedMenuLayout-style.css",
         distPath:distPath
     },
 ];

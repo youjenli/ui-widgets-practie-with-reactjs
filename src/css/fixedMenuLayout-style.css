@@ -1,0 +1,43 @@
+body {
+    margin:0;
+}
+
+.fixedMenuLayout {
+    position:relative;
+    top:0;
+    left:0;
+    overflow:hidden;
+}
+
+.fixedMenuLayout .content {
+    width:70%;
+    margin-right:30%;
+    background-color:white;
+}
+
+.fixedMenuLayout .menu {
+    width:30%;
+    height:100vh;
+    background-color:black;
+    color:white;
+    position:fixed;
+    top:0;
+    right:0;
+    z-index: 10;
+}
+
+.fixedMenuLayout .menu ul {
+    position:absolute;
+    top:10%;
+}
+
+.fixedMenuLayout .menu li { 
+    list-style-type:none;
+    padding: 6px 8px;
+    display:block;
+}
+
+.fixedMenuLayout .menu a { 
+    font-size:25px;
+    text-decoration:none;
+}
