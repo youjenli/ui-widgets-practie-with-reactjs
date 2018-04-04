@@ -216,3 +216,45 @@ body {
     padding: 30px;
     text-align: center;
 }
+
+.hoverableDropdown {
+    margin-left:20px;/*為按鈕左邊留點空間比較好按*/
+}
+
+.hoverable {
+    color:white;
+    background-color: orange;
+    font-size:16px;
+    display:block;/*讓它以區塊顯示, 這樣浮動選單才能藉由躲在它裡面來與它保持一定的寬度*/
+    position:relative;/*為了讓選單能跟著它走, 要改成使用 relative 定位*/
+    top:0;
+    left:0;
+    border:none;/*在還沒想好合適的按鈕圖示之前取消邊框*/
+}
+
+.dropdown {
+    position:absolute; /*讓選單以 button 為定位參考基準*/
+    top:102%;
+    left:0;
+    display:none;
+    padding-top:10px; /*為選單上方留點空白以免太壓迫*/
+    min-width:100%; /*讓選單至少等長於按鈕, 這樣看起來才不會太弱*/
+    background-color:lightgray;
+    box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+}
+
+.dropdown ul {
+    margin:0;/*取消 ul 預設的 margin 以免按鈕的字歪一邊*/
+    padding:0;/*取消 ul 預設的 padding 以免按鈕的字上下方空白很大*/
+    list-style-type:none;
+}
+
+.dropdown li {
+    border-bottom:solid 0.5px;
+    border-color: white;
+}
+
+.dropdown.active {
+    display:block;
+    z-index: 10;
+}

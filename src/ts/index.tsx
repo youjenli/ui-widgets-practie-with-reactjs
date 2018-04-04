@@ -7,6 +7,7 @@ import { IconBar } from './components/iconBar';
 import { Accordion } from './components/accordion';
 import { TopNavigation } from './components/topNavigation';
 import { Header } from './components/header';
+import { HoverableDropdown } from './components/hoverableDropdown';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <IconBar />
             <AnimatedMenuIcon />
             <Accordion sectionName="section 1" section="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." isActive={true} />
+            <HoverableDropdown isHovered={false} />
             <Header />
             <TopNavigation foldedMenu={false} />
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
