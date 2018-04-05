@@ -21,14 +21,12 @@ export class HoverableDropdown extends React.Component<HoverableDropdownState,Ho
         return (
             <div className="widget hoverableDropdown" onMouseEnter={this.onMouseActionTriggered} onMouseLeave={this.onMouseActionTriggered}>
                 <button className="hoverable">Hover Me!
-                <div className={dropdownClasses}>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                </div>
                 </button>
+                <div className={dropdownClasses}>
+                    <a href="#">Item 1</a>
+                    <a href="#">Item 2</a>
+                    <a href="#">Item 3</a>
+                </div>
             </div>
         );
     }
