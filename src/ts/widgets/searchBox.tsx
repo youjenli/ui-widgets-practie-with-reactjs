@@ -8,13 +8,10 @@ interface SearchBoxState {
 export class SearchBox extends React.Component<SearchBoxState, SearchBoxState> {
     constructor(props) {
         super(props);
-        this.state = props;
     }
     render () {
-        const className = "search-container " + this.state.className;
-
         return(
-            <div className={className}>
+            <div className={"search-container " + this.props.className}>
                 <input type="text" placeholder="Search..." />
                 <button className="fa fa-search" />
             </div>

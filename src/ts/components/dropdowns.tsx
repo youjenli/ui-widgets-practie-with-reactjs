@@ -5,7 +5,7 @@ interface DropdownState {
     isVisible:boolean;
 }
 
-class Dropdown extends React.Component<DropdownState, DropdownState> {
+export class Dropdown extends React.Component<DropdownState, DropdownState> {
     constructor(props) {
         super(props);
     }

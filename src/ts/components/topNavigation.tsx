@@ -1,16 +1,30 @@
 /// <reference types="react" />
 import * as React from 'react';
 import { SearchBox } from '../widgets/searchBox';
+import { Dropdown } from './dropdowns';
 
-interface TopNavigationState {
+interface TopNavigationProps {
     foldedMenu:boolean;
 }
 
-export class TopNavigation extends React.Component<TopNavigationState, TopNavigationState> {
+enum DropdownMenu {
+    NewsMenu = "News"
+}
+
+interface TopNavigationState extends TopNavigationProps {
+    isNewsMenuVisible:boolean;
+}
+
+export class TopNavigationWithDropdownMenu extends React.Component<TopNavigationProps, TopNavigationState> {
+    private newsMenu:Symbol;
     constructor(props) {
         super(props);
-        this.onClick = this.onClick.bind(this);
-        this.state = props;
+        this.onMenuIconClick = this.onMenuIconClick.bind(this);
+        this.toggleNewsMenuVisibility = this.toggleNewsMenuVisibility.bind(this);
+        //初始化 Component 狀態
+        let stateObj = Object.assign({}, props);
+        stateObj.isNewsMenuVisibile = false;
+        this.state = stateObj;
     }
     componentDidMount() {
         const topNav:HTMLElement = document.querySelector('.topNav');
@@ -26,31 +40,39 @@ export class TopNavigation extends React.Component<TopNavigationState, TopNaviga
         window.addEventListener('scroll', onScrollHandler);
         onScrollHandler();/* 要先執行一次, 這樣畫面重載時才能先套用 js 設定 */
     }
-    onClick() {
+    onMenuIconClick() {
         this.setState({
             foldedMenu:!this.state.foldedMenu
         });
     }
+    toggleNewsMenuVisibility() : void {
+        this.setState({
+            isNewsMenuVisible:!this.state.isNewsMenuVisible
+        });
+    }
     render() {
-        let classOfTopNav, classOfHome, classOfMenu;
+        let additionalClassesOfTopNav, classesOfHome, classesOfMenu;
         if (this.state.foldedMenu) {
-            classOfTopNav = 'widget topNav responsive';
-            classOfHome = 'active responsive';
-            classOfMenu = 'responsive';
+            additionalClassesOfTopNav = ' responsive';
+            classesOfHome = ' active responsive';
+            classesOfMenu = ' responsive';
         } else {
-            classOfTopNav = 'widget topNav';
-            classOfHome = 'active';
-            classOfMenu = '';
+            additionalClassesOfTopNav = '';
+            classesOfHome = ' active';
+            classesOfMenu = '';
         }
 
         return (
-            <div className={classOfTopNav}>
-                <a className={classOfHome} href="#home">Home</a>
-                <a className={classOfMenu} href="#news">News</a>
-                <a className={classOfMenu} href="#contact">Contact</a>
-                <a className={classOfMenu} href="#about">About</a>
-                <SearchBox className={classOfMenu} />
-                <a href="javascript:void(0);" className="icon" onClick={this.onClick}>&#9776;</a>
+            <div className={"widget topNav" + additionalClassesOfTopNav}>
+                <a className={"topNavMenu" + classesOfHome} href="#home">Home</a>
+                <button className={"topNavMenu dropdownMenu" + classesOfMenu} onClick={this.toggleNewsMenuVisibility}>
+                    News&nbsp;<i className="fa fa-caret-down"></i>
+                               <Dropdown isVisible={this.state.isNewsMenuVisible} />
+                </button>
+                <a className={"topNavMenu " + classesOfMenu} href="#contact">Contact</a>
+                <a className={"topNavMenu " + classesOfMenu} href="#about">About</a>
+                <SearchBox className={"topNavMenu " + classesOfMenu} />
+                <a href="javascript:void(0);" className="icon" onClick={this.onMenuIconClick}>&#9776;</a>
             </div>
         );
     }
