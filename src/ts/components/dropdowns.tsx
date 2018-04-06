@@ -8,13 +8,12 @@ interface DropdownState {
 class Dropdown extends React.Component<DropdownState, DropdownState> {
     constructor(props) {
         super(props);
-        this.state = props;
     }
     render() {
-        const className = this.state.isVisible ? "dropdown active":"dropdown";
+        const additionalClasses = this.props.isVisible ? " active":"";
 
         return (
-            <div className={className} >
+            <div className={"dropdown" + additionalClasses} >
                 <a href="#">Item 1</a>
                 <a href="#">Item 2</a>
                 <a href="#">Item 3</a>
@@ -39,7 +38,6 @@ export class HoverableDropdown extends React.Component<HoverableDropdownState,Ho
         });
     }
     render() {
-        console.log("is Hovered : " + this.state.isHovered);
         return (
             <div className="widget hoverableDropdown" onMouseEnter={this.onMouseActionTriggered} onMouseLeave={this.onMouseActionTriggered}>
                 <button className="hoverable">Hover Me! {this.state.isHovered}</button>
@@ -65,7 +63,6 @@ export class ClickableDropdown extends React.Component<ClickableDropdownState, C
         });
     }
     render () {
-        console.log("isClicked : " + this.state.isClicked);
         return (
             <div  className="widget clickableDropdown" onClick={this.onClick}>
                 <button className="clickable">Click Me! {this.state.isClicked}</button>
