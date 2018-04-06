@@ -217,7 +217,7 @@ body {
     text-align: center;
 }
 
-.hoverableDropdown {
+.hoverableDropdown, .clickableDropdown {
     margin-left:20px;/*為按鈕左邊留點空間比較好按*/
     display:inline-block;
 }
@@ -228,6 +228,15 @@ body {
     font-size:16px;
     display:block;/*讓它以區塊顯示, 這樣浮動選單才能藉由躲在它裡面來與它保持一定的寬度*/
     border:none;/*在還沒想好合適的按鈕圖示之前取消邊框*/
+}
+
+.clickable {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 .dropdown {
