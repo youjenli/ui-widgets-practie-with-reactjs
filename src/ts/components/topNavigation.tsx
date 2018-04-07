@@ -71,6 +71,7 @@ export class TopNavigationWithDropdownMenu extends React.Component<TopNavigation
                 </button>
                 <a className={"topNavMenu " + classesOfMenu} href="#contact">Contact</a>
                 <a className={"topNavMenu " + classesOfMenu} href="#about">About</a>
+                <div className="topNavPlaceholder">&nbsp;</div>
                 <SearchBox className={"topNavMenu " + classesOfMenu} />
                 <a href="javascript:void(0);" className="icon" onClick={this.onMenuIconClick}>&#9776;</a>
             </div>
