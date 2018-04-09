@@ -301,3 +301,89 @@ body {
     background-color: dodgerblue;
     color: white;
 }
+
+.slideshow {
+    text-align:center;
+}
+
+.slideshow .imageFrame {
+    margin:0 auto;
+    position:relative;
+    top:0;
+    left:0;
+    display:inline-block;
+}
+ 
+.slideshow img {
+  animation-name: fade;
+  animation-duration: 1.5s;
+  display:none;
+}
+
+.slideshow img.active {
+    display:block;
+}
+
+.imageFrame .pageIdx, .imageFrame .slider, .imageFrame .title {
+    background-color: Transparent;
+    color:white;
+    padding:5px 10px;
+    font-size:12pt;
+}
+
+.imageFrame .pageIdx {
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.imageFrame .slider {
+    border:none;
+    outline:none;
+}
+
+.imageFrame .slider.prev {
+    position:absolute;/*暫時的定位辦法*/
+    top:50%;
+    left:0;
+}
+
+.imageFrame .slider.next {
+    position:absolute;/*暫時的定位辦法*/
+    top:50%;
+    right:0;
+}
+
+.imageFrame .slider:hover {
+    background-color:black;
+    color:white;
+    opacity:0.7;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.imageFrame .title {
+    position:absolute;/*暫時的定位辦法*/
+    bottom:0;
+    display:block;
+    width:100%;
+    text-align:center;
+}
+
+.directive {
+    text-align:center;
+}
+
+.directive .point {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    margin:5px;
+    background-color:lightgray;
+    border-radius:50%;
+    transition:background-color 0.25s;
+}
+
+.directive .point.active {
+    background-color:gray;
+}
