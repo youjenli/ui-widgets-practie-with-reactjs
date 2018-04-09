@@ -276,3 +276,28 @@ body {
     display:block;
     z-index: 10;
 }
+
+.pagination {
+    margin:inherit auto;
+    text-align:center;
+}
+
+.pagination a {
+    color:black;
+    text-decoration:none;
+    text-align:center;
+    cursor:pointer;
+    display:inline-block;
+    min-width:20px;
+    padding:5px 10px;
+    transition: background-color 0.25s;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination .active {
+    background-color: dodgerblue;
+    color: white;
+}
