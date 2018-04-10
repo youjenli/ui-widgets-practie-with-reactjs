@@ -453,17 +453,20 @@ body.modal-open {
     opacity:0.7;
 }
 
-.imageOverlayFadeInBox {
+.imageOverlayFadeInBox, .imageOverlayTitle{
     margin:auto;
     position:relative;
     top:0;
     left:0;
-    opacity:1;
     width:300px;
     max-width:20%;
 }
 
-.imageOverlayFadeInBox img {
+.imageOverlayFadeInBox {
+    opacity:1;
+}
+
+.imageOverlayFadeInBox img, .imageOverlayTitle img {
     width:100%;
     height:auto;
 }
@@ -491,4 +494,23 @@ body.modal-open {
 
 .imageOverlayFadeInBox:hover .fadeInBox {
     opacity:1;
+}
+
+.imageOverlayTitle .titleBox{
+    width:100%;
+    padding: 10px 20px;
+    box-sizing:border-box;
+    max-height:25%;
+    position:absolute;
+    bottom:0;
+    color:white;
+    font-size:16px;
+    text-align:center;
+    background-color:black;
+    opacity:0;
+    transition:0.3s ease;    
+}
+
+.imageOverlayTitle .titleBox.active {
+    opacity:0.7;
 }

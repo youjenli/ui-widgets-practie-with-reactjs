@@ -10,7 +10,7 @@ import { Header } from './components/header';
 import { HoverableDropdown, ClickableDropdown } from './components/dropdowns';
 import { Pagination } from './components/pagination';
 import { SlideImages, Slideshow } from './components/slideshow';
-import { ModalImage, ImageOverlayFadeInBox } from './widgets/imageDisplayStand';
+import { ModalImage, ImageOverlayFadeInBox, ImageOverlayTitle } from './widgets/imageDisplayStand';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <Slideshow slides={slideImages.slides} indexOfActiveImage={slideImages.indexOfActiveImage} />
             <Accordion sectionName="section 1" section="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." isActive={true} />
             <ImageOverlayFadeInBox />
+            <ImageOverlayTitle />
             <HoverableDropdown isHovered={false} />
             <ClickableDropdown isClicked={false} />
             <Header />

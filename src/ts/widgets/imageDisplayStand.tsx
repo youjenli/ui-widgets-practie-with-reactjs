@@ -49,3 +49,32 @@ export class ImageOverlayFadeInBox extends React.Component {
         );
     }
 }
+
+interface ImageOverlayTitleState {
+    isActive:boolean;
+}
+
+export class ImageOverlayTitle extends React.Component<{}, ImageOverlayTitleState> {
+    constructor(props){
+        super(props);
+        this.toggleActiveState = this.toggleActiveState.bind(this);
+        this.state ={
+            isActive:false
+        };
+    }
+    toggleActiveState() {
+        this.setState({
+            isActive:!this.state.isActive
+        });
+    }
+    render() {
+        const additionalClassNamesOfTitleBox = this.state.isActive ? " active":"";
+
+        return (
+            <div className="widget imageOverlayTitle" onMouseEnter={this.toggleActiveState} onMouseLeave={this.toggleActiveState}>
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+                <div className={"titleBox" + additionalClassNamesOfTitleBox}>My name is John Doe</div>
+            </div>
+        )
+    }
+}
