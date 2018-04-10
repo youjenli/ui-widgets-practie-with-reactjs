@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+body.modal-open {
+    overflow:hidden;
+}
+
 .widget {
     margin-bottom:50px;
 }
@@ -386,4 +390,65 @@ body {
 
 .directive .point.active {
     background-color:gray;
+}
+
+.modalImage .modal {
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:100;
+    width:100vw;
+    height:100vh;
+    background-color:rgba(0, 0, 0, 0.8);
+    text-align:center;
+    display:none;
+}
+
+.modalImage .modal > * {
+    margin:auto;
+}
+
+.modalImage .modal.active {
+    display:block;
+}
+
+.modalImage .modal .close {
+    display:block;
+    box-sizing:border-box;
+    padding:12px 16px;
+    height:22.5%;
+    text-align:right;
+    color:white;
+    font-size:20pt;
+    cursor:pointer;
+}
+
+.modalImage .modal img {
+    height:45%;
+    width: auto;
+    margin:auto;
+}
+
+.modalImage .modal .caption {
+    box-sizing:border-box;
+    padding:10px 0;
+    height:22.5%;
+    font-size:16px;
+    color:white;
+    
+}
+
+.modalImage > img {
+    border-radius:3px;
+    opacity:1;
+    width:300px;
+    height:auto;
+}
+
+.modalImage > img {
+    cursor:pointer;
+}
+
+.modalImage > img:hover {
+    opacity:0.7;
 }
