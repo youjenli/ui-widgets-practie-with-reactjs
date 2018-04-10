@@ -4,6 +4,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { MenuItem } from './components/menuItem';
 import { MenuLayout } from './fixedMenuLayout';
+import { TeamPresentation } from './components/teamPresentation';
 
 interface offCanvasMenuLayoutState extends MenuLayout {
     isMenuActive?:boolean;
@@ -42,6 +43,7 @@ class OffCanvasMenuLayout extends React.Component<offCanvasMenuLayoutState, offC
                        <button onClick={this.toggleMenu}>Show Menu</button>
                     </p>
                     <p>{this.state.content}</p>
+                    <TeamPresentation />
                 </div>
             </div>
         );
