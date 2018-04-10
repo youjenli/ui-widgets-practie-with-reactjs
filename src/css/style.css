@@ -525,3 +525,34 @@ body.modal-open {
 .thumbnailImage:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
+
+.imageGrid {
+    display:flex;
+}
+
+.imageGrid .column {
+    padding: 5px 0;
+    flex: 25%;
+    max-width:25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageGrid .column img {
+    margin:5px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width:800px) {
+    .imageGrid .column {
+        flex:50%;
+        max-width:50%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .imageGrid .column {
+        flex:100%;
+        max-width:100%;
+    }
+}

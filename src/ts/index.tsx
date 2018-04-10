@@ -12,6 +12,7 @@ import { Pagination } from './components/pagination';
 import { SlideImages, Slideshow } from './components/slideshow';
 import { ModalImage, ImageOverlayFadeInBox, ImageOverlayTitle } from './widgets/imageDisplayStand';
 import { ThumbnailImage } from './widgets/thumbnailImage';
+import { ResponsiveImageGrid } from './components/responsiveImageGrid';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <ClickableDropdown isClicked={false} />
             <Header />
             <TopNavigationWithDropdownMenu foldedMenu={false} />
+            <ResponsiveImageGrid />
             <ModalImage src="https://www.w3schools.com/howto/img_fjords.jpg" alt="Trolltunga, Norway" />
             <ThumbnailImage />
             <Pagination pageCount={6} />
