@@ -38,3 +38,14 @@ export class ModalImage extends React.Component<ModelImageProps, ModelImageState
         )
     }
 }
+
+export class ImageOverlayFadeInBox extends React.Component {
+    render() {
+        return (
+            <div className="widget imageOverlayFadeInBox">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+                <div className="fadeInBox">John Doe</div>
+            </div>
+        );
+    }
+}

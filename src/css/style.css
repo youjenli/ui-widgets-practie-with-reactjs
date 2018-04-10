@@ -452,3 +452,43 @@ body.modal-open {
 .modalImage > img:hover {
     opacity:0.7;
 }
+
+.imageOverlayFadeInBox {
+    margin:auto;
+    position:relative;
+    top:0;
+    left:0;
+    opacity:1;
+    width:300px;
+    max-width:20%;
+}
+
+.imageOverlayFadeInBox img {
+    width:100%;
+    height:auto;
+}
+
+.imageOverlayFadeInBox:hover img {
+    opacity:0.3;
+    transition:0.5s ease;
+}
+
+.imageOverlayFadeInBox .fadeInBox {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);/*重要*/
+    opacity:0;
+    transition:0.5s ease;
+    font-size:16px;
+    color:white;
+    padding:8px 16px;
+    text-align: center;
+    background-color:#4CAF50;
+    min-width:40%;
+    box-sizing:border-box;
+}
+
+.imageOverlayFadeInBox:hover .fadeInBox {
+    opacity:1;
+}
