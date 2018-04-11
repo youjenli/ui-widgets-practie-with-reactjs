@@ -580,3 +580,15 @@ body.modal-open {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+.button.arrowOnHover {
+    color:white;
+    font-size:24px;
+    text-align:center;
+    cursor:pointer;
+    padding:10px 15px;
+    border-radius:3px;
+    min-width:30px;
+    max-width:150px;
+    background-color:#f4511e;
+}

@@ -13,7 +13,7 @@ import { SlideImages, Slideshow } from './components/slideshow';
 import { ModalImage, ImageOverlayFadeInBox, ImageOverlayTitle } from './widgets/imageDisplayStand';
 import { ThumbnailImage } from './widgets/thumbnailImage';
 import { ResponsiveImageGrid } from './components/responsiveImageGrid';
-import { ButtonWithPressedEffect } from './widgets/buttons';
+import { ButtonWithPressedEffect, ButtonWithArrowOnHover } from './widgets/buttons';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function(){
         indexOfActiveImage:0
     }
 
+    const buttonText = 'Hover';
+
     ReactDOM.render(
         <div>
             <IconBar />
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <ModalImage src="https://www.w3schools.com/howto/img_fjords.jpg" alt="Trolltunga, Norway" />
             <ThumbnailImage />
             <ButtonWithPressedEffect />
+            <ButtonWithArrowOnHover buttonText={buttonText} />
             <Pagination pageCount={6} />
         </div>,
         reactRoot
