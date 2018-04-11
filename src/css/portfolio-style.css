@@ -1,0 +1,47 @@
+body {
+    margin:0;
+    background-color:lightgray;
+}
+
+.portfolio {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.portfolio .normal-case, .portfolio .spotlight-case {
+    flex:1;
+    padding:5px;/*TODO*/
+    display:flex;
+}
+
+.portfolio .spotlight-case {
+    flex-direction:column;
+}
+
+.portfolio .case-study {
+    background-color:white;
+    padding:8px;
+    border-radius:3px;
+    box-sizing:border-box;
+}
+
+.portfolio .case-study img {
+    width:100%;
+    overflow:hidden;
+}
+
+.portfolio .normal-case .case-study {
+    flex:1;
+    margin:5px;
+}
+
+.portfolio .spotlight-case .case-study {
+    flex:1;
+    max-width:60%;
+    margin:auto;
+}
+
+.portfolio .spotlight-case .case-study img {
+    opacity:0.8;
+}

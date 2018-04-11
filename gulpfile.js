@@ -25,7 +25,8 @@ gulp.task(cleanTask, function () {
 
 const tsEntryFiles = [srcPath + '/ts/index.tsx',
     srcPath + '/ts/fixedMenuLayout.tsx',
-    srcPath + '/ts/offCanvasMenuLayout.tsx'];
+    srcPath + '/ts/offCanvasMenuLayout.tsx',
+    srcPath + '/ts/portfolio.tsx'];
 const tsConfig = require('./tsconfig.json');
 /*因為 tsify 接收參數的格式在 compilerOptions 的部分比 tsconfig 高一層, 
     所以下面要把 tsconfig 的 compilerOptions 往外提出來
@@ -71,19 +72,23 @@ const cssConcatCollections = [
         ],
         artifactName:"style.css",
         distPath:distPath
-    },
-    {
+    },{
         srcFiles:[
             srcPath + '/css/fixedMenuLayout-style.css'
         ],
         artifactName:"fixedMenuLayout-style.css",
         distPath:distPath
-    },
-    {
+    },{
         srcFiles:[
             srcPath + '/css/offCanvasMenuLayout-style.css'
         ],
         artifactName:"offCanvasMenuLayout-style.css",
+        distPath:distPath
+    },{
+        srcFiles:[
+            srcPath + '/css/portfolio-style.css'
+        ],
+        artifactName:"portfolio-style.css",
         distPath:distPath
     }
 ];
