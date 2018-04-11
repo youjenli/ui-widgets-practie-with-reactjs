@@ -556,3 +556,27 @@ body.modal-open {
         max-width:100%;
     }
 }
+
+.button {
+    margin:15px auto;
+}
+
+.button.pressedEffect {
+    background-color: #4CAF50;
+    color:white;
+    font-size:24px;
+    text-align:center;
+    cursor:pointer;
+    border-radius:10px;
+    padding:10px 20px;
+    box-shadow: 0 9px #999;
+    max-width:150px;
+}
+
+.button.pressedEffect:hover {
+    background-color: #3e8e41;
+}
+.button.pressedEffect:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
