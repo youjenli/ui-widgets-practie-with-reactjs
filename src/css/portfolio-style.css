@@ -5,18 +5,33 @@ body {
 
 .portfolio {
     width:100%;
-    display:flex;
-    flex-direction:column;
 }
 
-.portfolio .normal-case, .portfolio .spotlight-case {
-    flex:1;
-    padding:5px;/*TODO*/
-    display:flex;
+.portfolio > div {
+    padding:5px;
+    box-sizing:border-box;
 }
 
-.portfolio .spotlight-case {
-    flex-direction:column;
+.portfolio .filters .catagorySelection {
+    outline:none;
+    border:none;
+    border-radius:3px;
+    text-align:center;
+    padding:8px 12px;
+    margin:auto 5px;
+    min-width:40px;
+    background-color:darkgray;
+    cursor:pointer;
+}
+
+.portfolio .filters .catagorySelection:hover {
+    background-color:gray;
+}
+
+.portfolio .normal-case {
+    max-width:100%;
+    display:flex;
+    flex-wrap:wrap;
 }
 
 .portfolio .case-study {
@@ -33,13 +48,13 @@ body {
 
 .portfolio .normal-case .case-study {
     flex:1;
+    min-width:23%;
     margin:5px;
 }
 
 .portfolio .spotlight-case .case-study {
     flex:1;
-    max-width:60%;
-    margin:auto;
+    margin:5px;
 }
 
 .portfolio .spotlight-case .case-study img {
