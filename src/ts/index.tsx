@@ -14,6 +14,7 @@ import { ModalImage, ImageOverlayFadeInBox, ImageOverlayTitle } from './widgets/
 import { ThumbnailImage } from './widgets/thumbnailImage';
 import { ResponsiveImageGrid } from './components/responsiveImageGrid';
 import { ButtonWithPressedEffect, ButtonWithArrowOnHover } from './widgets/buttons';
+import { SocialMediaButtons } from './widgets/socialMedia';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <ThumbnailImage />
             <ButtonWithPressedEffect />
             <ButtonWithArrowOnHover buttonText={buttonText} />
+            <SocialMediaButtons />
             <Pagination pageCount={6} />
         </div>,
         reactRoot
