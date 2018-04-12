@@ -13,7 +13,7 @@ import { SlideImages, Slideshow } from './components/slideshow';
 import { ModalImage, ImageOverlayFadeInBox, ImageOverlayTitle } from './widgets/imageDisplayStand';
 import { ThumbnailImage } from './widgets/thumbnailImage';
 import { ResponsiveImageGrid } from './components/responsiveImageGrid';
-import { ButtonWithPressedEffect, ButtonWithArrowOnHover } from './widgets/buttons';
+import { ButtonWithPressedEffect, ButtonWithArrowOnHover, ScrollToTopButton } from './widgets/buttons';
 import { SocialMediaButtons } from './widgets/socialMedia';
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     const buttonText = 'Hover';
-
+    
     ReactDOM.render(
         <div>
             <IconBar />
@@ -56,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function(){
             <ThumbnailImage />
             <ButtonWithPressedEffect />
             <ButtonWithArrowOnHover buttonText={buttonText} />
+            <ScrollToTopButton threshold={300} />
             <SocialMediaButtons />
+
             <Pagination pageCount={6} />
         </div>,
         reactRoot
