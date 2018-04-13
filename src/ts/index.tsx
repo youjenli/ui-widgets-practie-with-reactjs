@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const buttonText = 'Hover';
     
     ReactDOM.render(
-        <div>
+        <div id="pageContainer">
             <Header />
             <TopNavigationWithDropdownMenu foldedMenu={false} />
             <AnimatedMenuIcon />

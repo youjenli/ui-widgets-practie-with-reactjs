@@ -177,7 +177,7 @@ body.modal-open {
 .topNav .scrollIndicator .indicator {
     background-color:yellowgreen;
     height:inherit;
-    width:10%;
+    width:0;
     transition:width 0.3s;
 }
 

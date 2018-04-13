@@ -27,6 +27,10 @@ export class TopNavigationWithDropdownMenu extends React.Component<TopNavigation
     }
     componentDidMount() {
         const topNav:HTMLElement = document.querySelector('.topNav');
+        const pageContainer:HTMLDivElement = document.querySelector('#pageContainer');
+        const indicator:HTMLDivElement = document.querySelector('.topNav .scrollIndicator .indicator');
+
+        
         const domRect = topNav.getBoundingClientRect();
         const onScrollHandler = function(){
             if ( window.scrollY > topNav.offsetTop ) {
@@ -35,6 +39,8 @@ export class TopNavigationWithDropdownMenu extends React.Component<TopNavigation
             if ( window.scrollY < domRect.bottom ) {
                 topNav.classList.remove('sticky');
             }
+            const ratio = Math.round((window.scrollY + window.innerHeight - domRect.bottom) / (pageContainer.scrollHeight - domRect.bottom ) * 100);
+            indicator.style.width = `${ratio}%`;
         };
         window.addEventListener('scroll', onScrollHandler);
         onScrollHandler();/* 要先執行一次, 這樣畫面重載時才能先套用 js 設定 */
