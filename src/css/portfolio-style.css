@@ -7,6 +7,29 @@ body {
     width:100%;
 }
 
+.icon-bar {
+    width: 100%;
+    background-color: #555;
+    display:flex;
+}
+
+.icon-bar a {
+    flex:1;
+    text-align:center;
+    padding:12px 0;
+    transition: all 0.3s ease;
+    color:white;
+    font-size:36px;
+}
+
+.icon-bar a:hover {
+    background-color: #000;
+}
+
+.icon-bar a.active {
+    background-color: #4CAF50;
+}
+
 .portfolio > div {
     padding:5px;
     box-sizing:border-box;

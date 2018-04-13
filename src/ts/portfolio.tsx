@@ -2,6 +2,7 @@
 /// <reference types="react-dom" />
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { IconBar } from './components/iconBar';
 import { Catagory, CatagoryButton } from './widgets/catagory';
 import { CaseStudy, SuccessStory } from './widgets/caseStudy';
 import { PopupLoginForm } from './components/forms';
@@ -206,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     ReactDOM.render(
         <div>
+            <IconBar />
             <PopupLoginForm />
             <Portfolio caseStudies={caseStudies} />
             <DevelopmentFootPrint stories={stories} />

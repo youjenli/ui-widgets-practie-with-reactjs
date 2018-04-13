@@ -3,7 +3,6 @@
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import { MenuIcon, AnimatedMenuIcon } from './components/menuIcon';
-import { IconBar } from './components/iconBar';
 import { Accordion } from './components/accordion';
 import { TopNavigationWithDropdownMenu } from './components/topNavigation';
 import { Header } from './components/header';
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     ReactDOM.render(
         <div>
-            <IconBar />
             <AnimatedMenuIcon />
             <Slideshow slides={slideImages.slides} indexOfActiveImage={slideImages.indexOfActiveImage} />
             <Accordion sectionName="section 1" section="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." isActive={true} />
@@ -58,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function(){
             <ButtonWithArrowOnHover buttonText={buttonText} />
             <ScrollToTopButton threshold={300} />
             <SocialMediaButtons />
-
             <Pagination pageCount={6} />
         </div>,
         reactRoot
