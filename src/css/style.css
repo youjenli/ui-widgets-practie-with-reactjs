@@ -76,8 +76,12 @@ body.modal-open {
 }
 
 .topNav {
-    background-color: #333;
     width:100%;
+    box-shadow:0 0 3px 0 gray;
+}
+
+.topNav .menuBar{
+    background-color: #333;
     display:flex;
 }
 
@@ -88,16 +92,16 @@ body.modal-open {
     z-index:10;
 }
 
-.topNav .topNavMenu{
+.topNav .topNavMenu, .topNav a.icon {
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16px;
-    position:relative;
-    top:0;
-    left:0;
     background-color:inherit;
+}
+
+.topNav .topNavMenu {
     flex:1;
 }
 
@@ -110,18 +114,14 @@ body.modal-open {
     cursor:pointer;
 }
 
-.topNav .topNavMenu:hover, .topNav a.icon {
+.topNav .topNavMenu:hover:not(.search-container), .topNav a.icon:hover{
     background-color: #ddd;
     color: black;
 }
 
-.topNav .topNavMenu.active, .topNav a.icon {
+.topNav .topNavMenu.active {
     background-color: #4CAF50;
     color: white;
-}
-
-.topNav .search-container {
-    float:right;
 }
 
 .search-container {
@@ -143,30 +143,42 @@ body.modal-open {
 }
 
 @media screen and (max-width: 600px) {
-    .topNav .topNavMenu:not(:first-child), .topNav .search-container/*:not(:first-child)*/ { display:none; }
+    .topNav .topNavMenu:not(:first-child), .topNav .search-container { display:none; }
     .topNav a.icon {
-        float:right;
         display:block;
     }
 }
 
 @media screen and (max-width:600px) {
-    .topNav.responsive {position: relative;}
-    .topNav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topNav.responsive .topNavMenu, .topNav.responsive .search-container {
-      float: none;
-      text-align: left;
+    .topNav.responsive {
+        display:block;
     }
     .topNav.responsive .topNavMenu {
+      text-align: left;
+      flex:unset;
+    }
+    .topNav.responsive .topNavMenu, .topNav.responsive .search-container {
       display: block;
     }
     .topNav.responsive .search-container {
       display:flex;
     }/*上面第一條 media query 已經讓 .search-container 消失, 接下來要在選單套用 responsive 時再次套用 display:flex 才能讓它以正常的排版顯示 */
+}
+
+.topNav .scrollIndicator {
+    background-color:lightgray;
+    height:5px;
+    width:100%;
+    position:relative;
+    top:0;
+    left:0;
+}
+
+.topNav .scrollIndicator .indicator {
+    background-color:yellowgreen;
+    height:inherit;
+    width:10%;
+    transition:width 0.3s;
 }
 
 .articleWithSideBar {

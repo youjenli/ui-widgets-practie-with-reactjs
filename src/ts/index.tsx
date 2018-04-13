@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function(){
     
     ReactDOM.render(
         <div>
+            <Header />
+            <TopNavigationWithDropdownMenu foldedMenu={false} />
             <AnimatedMenuIcon />
             <Slideshow slides={slideImages.slides} indexOfActiveImage={slideImages.indexOfActiveImage} />
             <Accordion sectionName="section 1" section="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." isActive={true} />
@@ -47,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function(){
             <ImageOverlayTitle />
             <HoverableDropdown isHovered={false} />
             <ClickableDropdown isClicked={false} />
-            <Header />
-            <TopNavigationWithDropdownMenu foldedMenu={false} />
             <ResponsiveImageGrid />
             <ModalImage src="https://www.w3schools.com/howto/img_fjords.jpg" alt="Trolltunga, Norway" />
             <ThumbnailImage />

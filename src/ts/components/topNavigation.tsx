@@ -16,7 +16,6 @@ interface TopNavigationState extends TopNavigationProps {
 }
 
 export class TopNavigationWithDropdownMenu extends React.Component<TopNavigationProps, TopNavigationState> {
-    private newsMenu:Symbol;
     constructor(props) {
         super(props);
         this.onMenuIconClick = this.onMenuIconClick.bind(this);
@@ -57,13 +56,14 @@ export class TopNavigationWithDropdownMenu extends React.Component<TopNavigation
             classesOfHome = ' active responsive';
             classesOfMenu = ' responsive';
         } else {
-            additionalClassesOfTopNav = '';
+            additionalClassesOfTopNav = '';/*考慮刪除, 應該無用 */
             classesOfHome = ' active';
             classesOfMenu = '';
         }
 
         return (
             <div className={"widget topNav" + additionalClassesOfTopNav}>
+                <div className="menuBar">
                 <a className={"topNavMenu" + classesOfHome} href="#home">Home</a>
                 <button className={"topNavMenu dropdownMenu" + classesOfMenu} onClick={this.toggleNewsMenuVisibility}>
                     News&nbsp;<i className="fa fa-caret-down"></i>
@@ -74,6 +74,10 @@ export class TopNavigationWithDropdownMenu extends React.Component<TopNavigation
                 <div className="topNavPlaceholder">&nbsp;</div>
                 <SearchBox className={"topNavMenu " + classesOfMenu} />
                 <a href="javascript:void(0);" className="icon" onClick={this.onMenuIconClick}>&#9776;</a>
+                </div>
+                <div className="scrollIndicator">
+                    <div className="indicator"></div>
+                </div>
             </div>
         );
     }
