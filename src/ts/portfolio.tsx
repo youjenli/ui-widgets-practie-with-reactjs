@@ -4,6 +4,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Catagory, CatagoryButton } from './widgets/catagory';
 import { CaseStudy, SuccessStory } from './widgets/caseStudy';
+import { PopupLoginForm } from './components/forms';
+import { Story, DevelopmentFootPrint } from './components/developmentFootPrint';
 
 interface CaseStudyProps extends CaseStudy {
     catagories: Catagory[];
@@ -178,8 +180,36 @@ document.addEventListener('DOMContentLoaded', function () {
         catagories: [Catagory.PEOPLE]
     }];
 
+    const stories: Story[] = [
+        {
+            time:"2018/4/13",
+            name:"完成工作經歷圖表雛型",
+            story:"今天終於獨自完成工作歷程時間表...想創造的東西終於能實現, 實在太開心了",
+            catagories:['大事','豐功','偉業'],
+            articleURL:'#'
+        },
+        {
+            time:"2018/4/13",
+            name:"增加經歷圖表內容",
+            story:"地球上有許多文化, 生活習慣大相逕庭的種族, 統一地球不是一件容易的事...但今天我還完成了!",
+            catagories:['豐功','偉業'],
+            articleURL:'#'
+        },
+        {
+            time:"2018/4/13",
+            name:"達成生涯階段目標",
+            story:"我的夢想是征服宇宙, 成立銀河帝國...很高興能在 2018/4/13 完成!",
+            catagories:['大事','豐功'],
+            articleURL:'#'
+        }
+    ]
+
     ReactDOM.render(
-        <Portfolio caseStudies={caseStudies} />,
+        <div>
+            <PopupLoginForm />
+            <Portfolio caseStudies={caseStudies} />
+            <DevelopmentFootPrint stories={stories} />
+        </div>,
         document.getElementById('react-root')
     );
 });
