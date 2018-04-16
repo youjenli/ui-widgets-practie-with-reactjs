@@ -211,155 +211,212 @@ button.login {
     position:relative;
     top:0;
     left:0;
-  }
-  
-  .devFootPrint .timeline {
-    background-color:white;
-    width:5px;
-    height:600px;
-    border-width:0 5px;
-    border-style:solid;
-    border-color:lightgray;
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-  }
-  
-  .devFootPrint .timestamp {
-    --diameter:18px;
-    width:var(--diameter);
-    height:var(--diameter);
-    border-radius:50%;
-    border-style:solid;
-    border-width:4px;
-    border-color:orange;
-    background-color:white;
-    transform:translateX(-10px);
-    position:absolute;
-  }
-  
-  .devFootPrint .arrow {
-    border-style:solid;
-    border-color:white;
-    border-width:10px;
-    z-index:10;
-  }
-  
-  .devFootPrint .arrow.left {
-    border-color:transparent transparent transparent white;
-    position:absolute;
-    left:-25px;
-  }
-  
-  .devFootPrint .arrow.right {
-    border-color:transparent white transparent transparent;
-    position:absolute;
-    right:-25px;
-  }
-  
-  .devFootPrint .dialog {
-    background-color:white;
-    width:275px;
-    height:150px;
-    padding:5px 10px;
-    box-sizing:border-box;
-    border-radius:5px;
-    overflow:hidden;
-    box-shadow:0 2px 2px 0 rgba(0,0,0, 0.8);
-   
-    display:flex;
-    flex-direction:column;
-  }
-  
-  .devFootPrint .dialog.left {
-    position:absolute;
-    top:-10px;
-    left:-299px;
-  }
-  
-  .devFootPrint .dialog.right {
-    position:absolute;
-    top:-10px;
-    right:-299px;
-  }
-  
-  .devFootPrint .dialog > *:not(:last-child) {
-     margin-top:0;
-     margin-bottom:8px;
-  }
-  
-  .devFootPrint .dialog .storyName {
-    flex:2;
-    border-width:0 0 1px 0;
-    border-style:solid;
-    border-color:#C8C8C8;
-    text-align:center;
-    vertical-align:middle;
-  }
-  
-  .devFootPrint .dialog .story {
-    flex:5;
-    font-size:12px;
-  }
-  
-  .devFootPrint .dialog .story-foot {
-    flex:2;
-    font-size:10px;
-    display:flex;
-  }
-  
-  .devFootPrint .story-foot .storyCatagory {
-    flex:7;
-    display:flex;
-    justify-content:left;
-  }
-  
-  .devFootPrint .storyCatagory .description {
-    font-size:12px;
-  }
-  
-  .devFootPrint .story-foot .learnMore {
-    flex:3;
-    text-align:right;
-  }
-  
-  .devFootPrint .storyCatagory > *,
-  .devFootPrint .learnMore {
-    display:table;
-  }
-  
-  .devFootPrint .storyCatagory > * {
-    padding:5px;  
-  }
-  
-  .devFootPrint .storyCatagory .catagory {
-    margin-right:5px;
-    border-radius:3px;
-    cursor:pointer;
-    text-align:center;
-    box-shadow:0 1px 2px 0 rgba(0,0,0,0.8);
-  }
-  
-  .devFootPrint .storyCatagory .catagory.none {
-      background-color:lightblue;
-  }
+}
 
-  .devFootPrint .storyCatagory .catagory.red {
-    background-color:#FF3333;
-  }
+.devFootPrint .timeline {
+  background-color:white;
+  width:5px;
+  height:600px;
+  border-width:0 5px;
+  border-style:solid;
+  border-color:lightgray;
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.devFootPrint .timestamp {
+  --diameter:18px;
+  width:var(--diameter);
+  height:var(--diameter);
+  border-radius:50%;
+  border-style:solid;
+  border-width:4px;
+  border-color:orange;
+  background-color:white;
+  transform:translateX(-10px);
+  position:absolute;
+}
+
+.devFootPrint .arrow {
+  border-style:solid;
+  border-color:white;
+  border-width:10px;
+  z-index:10;
+}
+
+.devFootPrint .arrow.left {
+  border-color:transparent transparent transparent white;
+  position:absolute;
+  left:-25px;
+}
+
+.devFootPrint .arrow.right {
+  border-color:transparent white transparent transparent;
+  position:absolute;
+  right:-25px;
+}
+
+.devFootPrint .dialog {
+  background-color:white;
+  width:275px;
+  height:150px;
+  padding:5px 10px;
+  box-sizing:border-box;
+  border-radius:5px;
+  overflow:hidden;
+  box-shadow:0 2px 2px 0 rgba(0,0,0, 0.8);
+ 
+  display:flex;
+  flex-direction:column;
+}
+
+.devFootPrint .dialog.left {
+  position:absolute;
+  top:-10px;
+  left:-299px;
+}
+
+.devFootPrint .dialog.right {
+  position:absolute;
+  top:-10px;
+  right:-299px;
+}
+
+.devFootPrint .dialog > *:not(:last-child) {
+   margin-top:0;
+   margin-bottom:8px;
+}
+
+.devFootPrint .dialog .storyName {
+  flex:2;
+  border-width:0 0 1px 0;
+  border-style:solid;
+  border-color:#C8C8C8;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.devFootPrint .dialog .story {
+  flex:5;
+  font-size:12px;
+}
+
+.devFootPrint .dialog .story-foot {
+  flex:2;
+  font-size:10px;
+  display:flex;
+}
+
+.devFootPrint .story-foot .storyCatagory {
+  flex:7;
+  display:flex;
+  justify-content:left;
+}
+
+.devFootPrint .storyCatagory .description {
+  font-size:12px;
+}
+
+.devFootPrint .story-foot .learnMore {
+  flex:3;
+  text-align:right;
+}
+
+.devFootPrint .storyCatagory > *,
+.devFootPrint .learnMore {
+  display:table;
+}
+
+.devFootPrint .storyCatagory > * {
+  padding:5px;  
+}
+
+.devFootPrint .storyCatagory .catagory {
+  margin-right:5px;
+  border-radius:3px;
+  cursor:pointer;
+  text-align:center;
+  box-shadow:0 1px 2px 0 rgba(0,0,0,0.8);
+}
+
+.devFootPrint .storyCatagory .catagory.none {
+    background-color:lightblue;
+}
+.devFootPrint .storyCatagory .catagory.red {
+  background-color:#FF3333;
+}
+
+.devFootPrint .storyCatagory .catagory.orange {
+  background-color:#FF6633;
+}
+
+.storyCatagory .catagory.green {
+  background-color:yellowgreen;
+}
   
-  .devFootPrint .storyCatagory .catagory.orange {
-    background-color:#FF6633;
-  }
-  
-  .storyCatagory .catagory.green {
-    background-color:yellowgreen;
-  }
-    
-  .devFootPrint .learnMore span {
+.devFootPrint .learnMore span {
+  padding:5px;
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.phraseRecommendation {
+    display:inline-block;
+    margin:5px;
+    max-width:250px;
+    font-size:12px;
+    display:flex;
+    justify-content: space-between;
+    align-items:stretch;
+}
+
+.phraseRecommendation .inputField {
+    flex:8;
+    display:inline-block;
+    position:relative;
+    top:0;
+    left:0;
+}
+
+.phraseRecommendation input {
+    background-color:darkgray;
+    border:none;
+    padding:8px 10px;
+}
+
+.phraseRecommendation .actionBtn {
+    flex:2;
+    border:none;
+    outline:none;
+    background-color:#0080ff;
+    color:white;
+    cursor:pointer;
+}
+
+.phraseRecommendation .recommendations {
+    background-color:white;
+    position:absolute;
+    top:100%;
+    left:0;
+    z-index:200;
+}
+
+.phraseRecommendation .recommendedItem {
+    border-width:0 0.3px 0.3px 0.3px;
+    border-style: solid;
+    border-color:gray;
     padding:5px;
-    display:table-cell;
-    vertical-align:middle;
-  }
-  
+    display:block;
+    cursor:pointer;
+}
+
+.phraseRecommendation .recommendedItem.active {
+    color:white;
+    background-color:#0080ff;
+}
+
+.phraseRecommendation .recommendedItem strong {
+    font-weight: bold;
+}

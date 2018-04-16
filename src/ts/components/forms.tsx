@@ -1,6 +1,96 @@
 /// <reference types="react" />
 import * as React from 'react';
 
+export interface InputFieldWithPhraseRecommendationProps {
+    placeHolderOfInputField: string;
+    textOfActionButton: string;
+    candidateItems: string[];
+}
+
+interface InputFieldWithPhraseRecommendationState {
+    recommendationList: string[]
+    inputPhrase: string
+    indexOfHighlightedRecommendation: number
+}
+
+export class InputFieldWithPhraseRecommendation extends React.Component<InputFieldWithPhraseRecommendationProps, InputFieldWithPhraseRecommendationState> {
+    defaultSettingsOfRecommendationList: InputFieldWithPhraseRecommendationState
+    inputField:HTMLInputElement
+    constructor(props) {
+        super(props);
+        this.generateRecommendations = this.generateRecommendations.bind(this);
+        this.pickRecommendation = this.pickRecommendation.bind(this);
+        this.defaultSettingsOfRecommendationList = {
+            recommendationList: [],
+            inputPhrase: "",
+            indexOfHighlightedRecommendation: -1
+        };
+        this.state = this.defaultSettingsOfRecommendationList;
+    }
+    pickRecommendation(e) {
+        if (this.state.recommendationList.length <= 0) {
+            return;
+        }
+
+        if (e.keyCode == 40) {
+            this.setState({
+                indexOfHighlightedRecommendation: (this.state.indexOfHighlightedRecommendation + 1) % this.state.recommendationList.length
+            });
+        } else if (this.state.indexOfHighlightedRecommendation >= 0 && e.keyCode == 13 ) {
+            this.inputField.value = this.state.recommendationList[this.state.indexOfHighlightedRecommendation];
+            console.log(`update input field with ${this.state.recommendationList[this.state.indexOfHighlightedRecommendation]}`);
+            this.setState(this.defaultSettingsOfRecommendationList);
+        } else if ( e.keyCode == 27 ) {
+            this.setState(this.defaultSettingsOfRecommendationList);
+        }
+    }
+    generateRecommendations(e) {
+        const inputPhrase = e.target.value;
+        let recommendationState = null;
+        if (inputPhrase == "") {
+            recommendationState = this.defaultSettingsOfRecommendationList;
+        } else {
+            const lengthOfInputPhrase = inputPhrase.length;
+            const recommendationList: string[] = [];
+            const upperCasedInputPhrase = inputPhrase.toUpperCase();
+            for (let i = 0; i < this.props.candidateItems.length; i += 1) {
+                if (this.props.candidateItems[i].substring(0, lengthOfInputPhrase).toUpperCase() == upperCasedInputPhrase) {
+                    recommendationList.push(this.props.candidateItems[i]);
+                }
+            }
+            recommendationState = {
+                recommendationList: recommendationList,
+                inputPhrase: inputPhrase,
+                indexOfHighlightedRecommendation:-1
+            }
+        }
+        this.setState(recommendationState);
+    }
+    render() {
+        const lengthOfInputPhrase = this.state.inputPhrase.length;
+        const recommendations = this.state.recommendationList.map((item, idx) => {
+            const boldCharacters = item.substring(0, lengthOfInputPhrase);
+            const additionalClasses = idx == this.state.indexOfHighlightedRecommendation ? " active" : "";
+            return (
+                <div className={"recommendedItem" + additionalClasses}>
+                    <strong dangerouslySetInnerHTML={{ __html: boldCharacters }}></strong>
+                    <span dangerouslySetInnerHTML={{ __html: item.substring(lengthOfInputPhrase) }}></span>
+                </div>
+            )
+        });
+
+        return (
+            <div className="phraseRecommendation">
+                <div className="inputField">
+                    <input type="text" placeholder={this.props.placeHolderOfInputField} onInput={this.generateRecommendations} onKeyDown={this.pickRecommendation} ref={input => this.inputField = input}/>
+                    <div className="recommendations">{recommendations}</div>
+                </div>
+                <button className="actionBtn">{this.props.textOfActionButton}</button>
+            </div>
+        );
+    }
+}
+
 interface LoginFormState {
     isActive: boolean;
 }
