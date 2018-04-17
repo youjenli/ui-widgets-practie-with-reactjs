@@ -14,6 +14,7 @@ import { ThumbnailImage } from './widgets/thumbnailImage';
 import { ResponsiveImageGrid } from './components/responsiveImageGrid';
 import { ButtonWithPressedEffect, ButtonWithArrowOnHover, ScrollToTopButton } from './widgets/buttons';
 import { SocialMediaButtons } from './widgets/socialMedia';
+import { ToggleSwitch } from './widgets/switch';
 
 document.addEventListener('DOMContentLoaded', function(){
     const reactRoot = document.getElementById('react-root');
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
             <ImageOverlayTitle />
             <HoverableDropdown isHovered={false} />
             <ClickableDropdown isClicked={false} />
+            <ToggleSwitch isActive={false}/>
             <ResponsiveImageGrid />
             <ModalImage src="https://www.w3schools.com/howto/img_fjords.jpg" alt="Trolltunga, Norway" />
             <ThumbnailImage />

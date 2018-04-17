@@ -638,3 +638,62 @@ body.modal-open {
 .scrollToTop.active {
     display:block;
 }
+
+.toggleSwitch {
+  width:50px;
+  height:25px;
+  background-color:transparent;
+  position:relative;
+  top:0;
+  left:0;
+  display:inline-block;
+  margin:5px;
+}
+
+.back, .switch {
+    width:25px;
+    height:25px;
+    background-color:lightgray;
+}
+
+.back {
+  position:absolute;
+  top:0;
+  left:12.5px;
+}
+
+.switch {
+  border-radius:50%;
+  z-index:10;
+  cursor:pointer;
+}
+
+.switch.off {
+  position:absolute;
+  left:0;
+}
+
+.switch.on {
+  position:absolute;
+  right:0;
+}
+
+.indicator {
+  background-color:white;
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  z-index:25;
+  position:absolute;
+  top:3px;
+  left:3px;
+  transition:0.3s;
+}
+
+.indicator.active {
+  margin-left:25px;
+}
+
+.back.active, .switch.active {
+  background-color:#2196F3;
+}
