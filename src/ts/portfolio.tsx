@@ -5,7 +5,7 @@ import * as ReactDOM from 'react-dom';
 import { IconBar } from './components/iconBar';
 import { Catagory, CatagoryButton } from './widgets/catagory';
 import { CaseStudy, SuccessStory } from './widgets/caseStudy';
-import { PopupLoginForm, InputFieldWithPhraseRecommendationProps, InputFieldWithPhraseRecommendation } from './components/forms';
+import { PopupLoginForm, InputFieldWithPhraseRecommendationProps, InputFieldWithPhraseRecommendation, ResponsiveForms } from './components/forms';
 import { Story, DevelopmentFootPrint } from './components/developmentFootPrint';
 
 interface CaseStudyProps extends CaseStudy {
@@ -212,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <IconBar />
             <PopupLoginForm />
             <InputFieldWithPhraseRecommendation placeHolderOfInputField="Choose a country..." textOfActionButton="Submit" candidateItems={candidateItems} />
+            <ResponsiveForms />
             <Portfolio caseStudies={caseStudies} />
             <DevelopmentFootPrint stories={stories} />
         </div>,

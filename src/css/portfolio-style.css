@@ -32,7 +32,6 @@ body {
 
 .portfolio > div {
     padding:5px;
-    box-sizing:border-box;
 }
 
 .portfolio .filters .catagorySelection {
@@ -419,4 +418,63 @@ button.login {
 
 .phraseRecommendation .recommendedItem strong {
     font-weight: bold;
+}
+
+form.responsive {
+    width:500px;
+    max-width:100%;/*TODO*/
+    background-color:darkgray;
+    border-radius:3px;
+    padding:10px 5px;
+    box-sizing:border-box;
+}
+
+form.responsive * {
+    box-sizing:border-box;
+}
+
+form.responsive .field{
+    padding:3px 5px;
+    display:flex;
+    align-items: stretch;
+}
+
+form.responsive .field label {
+    flex:3;
+}
+
+form.responsive .field label span {
+    display:block;
+    height:100%;
+    padding:4% 0;
+}
+
+form.responsive .field input, form.responsive .field select, form.responsive .field textarea {
+    padding:6px 10px;
+    flex:7;
+}
+
+form.responsive .field.submit {
+    display:flex;
+    flex-direction: row-reverse;
+}
+
+form.responsive .field .submitBtn {
+    outline:none;
+    border:none;
+    border-radius:3px;
+    background-color:#45a049;
+    color:white;
+    padding:8px 14px;
+    min-width:30px;
+    cursor:pointer;
+}
+
+@media screen and (max-width:400px) {
+    form.responsive .field {
+        flex-direction: column;
+    }
+    form.responsive .field label span {
+        padding:1% 0;
+    }
 }

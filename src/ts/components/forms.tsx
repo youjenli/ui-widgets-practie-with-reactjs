@@ -15,7 +15,7 @@ interface InputFieldWithPhraseRecommendationState {
 
 export class InputFieldWithPhraseRecommendation extends React.Component<InputFieldWithPhraseRecommendationProps, InputFieldWithPhraseRecommendationState> {
     defaultSettingsOfRecommendationList: InputFieldWithPhraseRecommendationState
-    inputField:HTMLInputElement
+    inputField: HTMLInputElement
     constructor(props) {
         super(props);
         this.generateRecommendations = this.generateRecommendations.bind(this);
@@ -36,11 +36,11 @@ export class InputFieldWithPhraseRecommendation extends React.Component<InputFie
             this.setState({
                 indexOfHighlightedRecommendation: (this.state.indexOfHighlightedRecommendation + 1) % this.state.recommendationList.length
             });
-        } else if (this.state.indexOfHighlightedRecommendation >= 0 && e.keyCode == 13 ) {
+        } else if (this.state.indexOfHighlightedRecommendation >= 0 && e.keyCode == 13) {
             this.inputField.value = this.state.recommendationList[this.state.indexOfHighlightedRecommendation];
             console.log(`update input field with ${this.state.recommendationList[this.state.indexOfHighlightedRecommendation]}`);
             this.setState(this.defaultSettingsOfRecommendationList);
-        } else if ( e.keyCode == 27 ) {
+        } else if (e.keyCode == 27) {
             this.setState(this.defaultSettingsOfRecommendationList);
         }
     }
@@ -61,7 +61,7 @@ export class InputFieldWithPhraseRecommendation extends React.Component<InputFie
             recommendationState = {
                 recommendationList: recommendationList,
                 inputPhrase: inputPhrase,
-                indexOfHighlightedRecommendation:-1
+                indexOfHighlightedRecommendation: -1
             }
         }
         this.setState(recommendationState);
@@ -82,7 +82,7 @@ export class InputFieldWithPhraseRecommendation extends React.Component<InputFie
         return (
             <div className="phraseRecommendation">
                 <div className="inputField">
-                    <input type="text" placeholder={this.props.placeHolderOfInputField} onInput={this.generateRecommendations} onKeyDown={this.pickRecommendation} ref={input => this.inputField = input}/>
+                    <input type="text" placeholder={this.props.placeHolderOfInputField} onInput={this.generateRecommendations} onKeyDown={this.pickRecommendation} ref={input => this.inputField = input} />
                     <div className="recommendations">{recommendations}</div>
                 </div>
                 <button className="actionBtn">{this.props.textOfActionButton}</button>
@@ -137,6 +137,22 @@ export class PopupLoginForm extends React.Component<{}, LoginFormState> {
                 </div>
 
             </div>
+        )
+    }
+}
+
+export class ResponsiveForms extends React.Component {
+    render() {
+        return (
+            <form className="responsive">
+                <div className="field">
+                    <label htmlFor="firstName"><span>First Name</span></label><input name="firstName" type="text" placeholder="Your name..." />
+                </div>
+                <div className="field"><label htmlFor="lastName"><span>Last Name</span></label><input name="lastName" type="text" placeholder="Your name..." /></div>
+                <div  className="field"><label htmlFor="country"><span>Country</span></label><select name="country"><option>Taiwan</option></select></div>
+                <div className="field"><label htmlFor="subject"><span>Subject</span></label><textarea name="subject" placeholder="Write something..."></textarea></div>
+                <div className="field submit"><button className="submitBtn">Submit</button></div>
+            </form>
         )
     }
 }
