@@ -2,6 +2,26 @@ body {
     margin: 0;
 }
 
+/* Width */
+::-webkit-scrollbar {
+    width:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 body.modal-open {
     overflow:hidden;
 }
@@ -650,35 +670,35 @@ body.modal-open {
   margin:5px;
 }
 
-.back, .switch {
+.toggleSwitch .back, .switch {
     width:25px;
     height:25px;
     background-color:lightgray;
 }
 
-.back {
+.toggleSwitch .back {
   position:absolute;
   top:0;
   left:12.5px;
 }
 
-.switch {
+.toggleSwitch .switch {
   border-radius:50%;
   z-index:10;
   cursor:pointer;
 }
 
-.switch.off {
+.toggleSwitch .switch.off {
   position:absolute;
   left:0;
 }
 
-.switch.on {
+.toggleSwitch .switch.on {
   position:absolute;
   right:0;
 }
 
-.indicator {
+.toggleSwitch .indicator {
   background-color:white;
   width:19px;
   height:19px;
@@ -690,10 +710,10 @@ body.modal-open {
   transition:0.3s;
 }
 
-.indicator.active {
+.toggleSwitch .indicator.active {
   margin-left:25px;
 }
 
-.back.active, .switch.active {
+.toggleSwitch .back.active, .switch.active {
   background-color:#2196F3;
 }
