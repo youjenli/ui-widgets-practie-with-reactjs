@@ -717,3 +717,39 @@ body.modal-open {
 .toggleSwitch .back.active, .switch.active {
   background-color:#2196F3;
 }
+
+.loader {
+    width:30px;
+    height:30px;
+    border-style:solid;
+    border-width:8px;
+    border-color:#3498db darkgray darkgray darkgray;
+    border-radius:50%;
+    animation:rotation 1.4s linear infinite;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loaderScreen {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color:white;
+    z-index:2000;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.behindTheScenes {
+    overflow:hidden;
+}
