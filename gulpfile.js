@@ -12,16 +12,15 @@ const print = require('gulp-print').default;
 */
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat-css');
-const webserver = require('gulp-webserver');
 
 const srcPath = './src';
 const distPath = './dist'; //輸出建置成品的路徑
 
 //清空輸出打包成品的資料夾
-const cleanTask = 'clean';
-gulp.task(cleanTask, function () {
+const cleanTask = () => {
     return del(distPath);
-});
+};
+gulp.task('clean', cleanTask);
 
 const tsEntryFiles = [srcPath + '/ts/index.tsx',
     srcPath + '/ts/fixedMenuLayout.tsx',
@@ -39,7 +38,7 @@ if (tsConfig.hasOwnProperty('compilerOptions')) {
 //提出 compilterOption 之後就是複製其他欄位
 Object.assign(transpileConfig, tsConfig);
 
-function bundleJS() {
+function prepareJSTask() {
     const tasks = tsEntryFiles.map(function(entryFile){
         return browserify({ //browserify 會一併打包專案的依賴函式庫 , 也就是 React 和 ReactDOM
             basedir: '.',
@@ -62,8 +61,7 @@ function bundleJS() {
     return es.merge.apply(null, tasks);
 }
 
-const prepareJSTask = 'prepareJS';
-gulp.task(prepareJSTask, [cleanTask], bundleJS);
+gulp.task('prepareJS', prepareJSTask);
 
 const cssConcatCollections = [
     {
@@ -106,8 +104,7 @@ function concatCSSFiles() {
     return es.merge.apply(null, tasks);
 }
 
-const prepareCSSTask = 'prepareCSS';
-gulp.task(prepareCSSTask, [cleanTask], concatCSSFiles);
+gulp.task('prepareCSS', concatCSSFiles);
 
 function copyHTMLFiles() {
     return gulp.src(srcPath + '/html/**/*.html')
@@ -115,27 +112,8 @@ function copyHTMLFiles() {
         .pipe(gulp.dest(distPath));
 }
 
-const prepareHtmlTask = 'prepareHTML';
-gulp.task(prepareHtmlTask, [cleanTask], copyHTMLFiles);
+gulp.task('prepareHTML', copyHTMLFiles);
 
-const buildTask = 'build';
-gulp.task('build', [cleanTask, prepareJSTask, prepareCSSTask, prepareHtmlTask]);
-gulp.task('default', [buildTask]);
-
-const watchTask = 'watch';
-gulp.task(watchTask, [buildTask], function () {
-    gulp.watch([srcPath + '/ts/**/*.ts', srcPath + '/ts/**/*.tsx'], bundleJS);
-    gulp.watch([srcPath + '/css/**/*.css'], concatCSSFiles);
-    gulp.watch([srcPath + '/html/**/*.html'], copyHTMLFiles);
-});
-
-const runDevServerTask = 'serve';
-gulp.task(runDevServerTask, [buildTask], function () {
-    return gulp.src(distPath)
-        .pipe(webserver({
-            "livereload": true,
-            "direcotryListing": true,
-            "fallback": "index.html",
-            "open": true
-        }));
-});
+const buildTask = gulp.series(cleanTask, gulp.parallel([prepareJSTask, concatCSSFiles, copyHTMLFiles]));
+gulp.task('build', buildTask);
+gulp.task('default', buildTask);
